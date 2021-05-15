@@ -19,7 +19,7 @@ export const register = (email: string, password: string) => {
         type: ActionType.REGISTER_SUCCESS,
         payload: {
           token: data.token,
-          user: { email },
+          user: null,
         },
       });
     } catch (err) {
@@ -41,7 +41,6 @@ export const login = (email: string, password: string) => {
         email,
         password,
       });
-
       dispatch({
         type: ActionType.LOGIN_SUCCESS,
         payload: {
@@ -52,6 +51,55 @@ export const login = (email: string, password: string) => {
     } catch (err) {
       dispatch({
         type: ActionType.LOGIN_ERROR,
+        payload: err.response.data.error,
+      });
+    }
+  };
+};
+export const getLists = (pageNumber: number) => {
+  return async (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.LIST,
+    });
+    try {
+      const { data } = await api.get(`/users?page=${pageNumber}`);
+
+      dispatch({
+        type: ActionType.LIST_SUCCESS,
+        payload: {
+          entities: data.data,
+          page: data.page,
+          perPage: data.per_page,
+          total: data.total,
+          totalPages: data.total_pages,
+        },
+      });
+    } catch (err) {
+      dispatch({
+        type: ActionType.LIST_ERROR,
+        payload: err.response.data.error,
+      });
+    }
+  };
+};
+
+export const getUser = (id: number) => {
+  return async (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.GET_USER,
+    });
+    try {
+      const { data } = await api.get(`/users/${id}`);
+
+      dispatch({
+        type: ActionType.GET_USER_SUCCESS,
+        payload: {
+          userForEdit: data.data,
+        },
+      });
+    } catch (err) {
+      dispatch({
+        type: ActionType.GET_USER_ERROR,
         payload: err.response.data.error,
       });
     }

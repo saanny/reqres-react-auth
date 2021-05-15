@@ -1,0 +1,43 @@
+.dsh-pagination-link {
+  color: #005f8e;
+  font-weight: bold;
+  font-size: 21px;
+  cursor: pointer;
+}
+.dsh-pagination-li {
+  margin: 0px 10px !important;
+  padding: 11px !important;
+}
+.active-pagi {
+  border: 1px solid #e0dfdf !important;
+  background: #fff;
+  border-radius: 5px;
+}
+.active-pagi a {
+  color: #1395d6 !important;
+}
+.nav-line > li .nav-link {
+  background: #eeeeee;
+  font-weight: bold;
+}
+.pagination {
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+#react-paginate ul {
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+}
+#react-paginate li {
+  display: inline-block;
+}

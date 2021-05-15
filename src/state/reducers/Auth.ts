@@ -1,10 +1,11 @@
 import { ActionType } from "../action-types";
-import { Action } from "../actions";
+import { Action, IUser } from "../actions";
+
 interface AuthState {
   loading: boolean;
   error: string | null;
   authToken: string | null;
-  user: object | null;
+  user: IUser | null;
 }
 const initializeState = {
   loading: false,
@@ -20,6 +21,7 @@ const reducer = (
     case ActionType.LOGIN:
       return { loading: true, error: null, authToken: null, user: null };
     case ActionType.LOGIN_SUCCESS:
+      localStorage.setItem("authToken", JSON.stringify(action.payload.token));
       return {
         loading: false,
         error: null,
@@ -36,11 +38,12 @@ const reducer = (
     case ActionType.REGISTER:
       return { loading: true, error: null, authToken: null, user: null };
     case ActionType.REGISTER_SUCCESS:
+      localStorage.setItem("authToken", JSON.stringify(action.payload.token));
       return {
         loading: false,
         error: null,
         authToken: action.payload.token,
-        user: null,
+        user: action.payload.user,
       };
     case ActionType.REGISTER_ERROR:
       return {
