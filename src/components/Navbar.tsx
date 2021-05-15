@@ -1,7 +1,6 @@
 import React from "react";
-import { Box, Link, Flex, Button } from "@chakra-ui/react";
-// import { Link } from "react-router-dom";
-
+import { Box, Flex, Link, Button } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 interface NavBarProps {}
 
 export const NavBar: React.FC<NavBarProps> = () => {
@@ -9,9 +8,13 @@ export const NavBar: React.FC<NavBarProps> = () => {
 
   body = (
     <>
-      <Link mr={2}>Login</Link>
+      <Link as={RouterLink} mr={3} to="/auth/login">
+        Login
+      </Link>
 
-      <Link>Register</Link>
+      <Link as={RouterLink} to="/auth/register">
+        Register
+      </Link>
     </>
   );
 

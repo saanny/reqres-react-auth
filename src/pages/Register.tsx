@@ -63,7 +63,7 @@ export const Register: React.FC<registerProps> = () => {
             <Box mt={4}>
               <InputField
                 name="confirm_password"
-                placeholder="confirm_password"
+                placeholder="Confirm Password"
                 label="Confirm Password"
                 type="password"
               />
