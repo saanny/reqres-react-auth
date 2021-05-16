@@ -69,7 +69,9 @@ interface GetUserErrorAction {
   type: ActionType.GET_USER_ERROR;
   payload: string;
 }
-
+interface LogOutAction {
+  type: ActionType.LOG_OUT;
+}
 export type Action =
   | LoginAction
   | LoginSuccessAction
@@ -82,4 +84,5 @@ export type Action =
   | ListErrorAction
   | GetUserAction
   | GetUserSuccessAction
-  | GetUserErrorAction;
+  | GetUserErrorAction
+  | LogOutAction;

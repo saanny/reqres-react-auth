@@ -52,6 +52,13 @@ const reducer = (
         authToken: null,
         user: null,
       };
+    case ActionType.LOG_OUT:
+      return {
+        loading: false,
+        error: null,
+        authToken: null,
+        user: null,
+      };
 
     default:
       return state;

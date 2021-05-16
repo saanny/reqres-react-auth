@@ -19,7 +19,7 @@ export const register = (email: string, password: string) => {
         type: ActionType.REGISTER_SUCCESS,
         payload: {
           token: data.token,
-          user: null,
+          user: { email },
         },
       });
     } catch (err) {
@@ -103,5 +103,12 @@ export const getUser = (id: number) => {
         payload: err.response.data.error,
       });
     }
+  };
+};
+export const logOut = () => {
+  return async (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.LOG_OUT,
+    });
   };
 };

@@ -11,4 +11,5 @@ export enum ActionType {
   GET_USER = "get_user",
   GET_USER_SUCCESS = "get_user_success",
   GET_USER_ERROR = "get_user_error",
+  LOG_OUT = "log_out",
 }

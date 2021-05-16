@@ -2,12 +2,13 @@ import React from "react";
 import { Text, Box, Flex, Link, Button } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { useSelector } from "../hooks/useTypeSelector";
+import { useActions } from "../hooks/useAction";
 
 interface NavBarProps {}
 
 export const NavBar: React.FC<NavBarProps> = () => {
   const { authToken, user } = useSelector((state) => state.auth);
-
+  const { logOut } = useActions();
   let body = null;
   if (!user) {
     body = (
@@ -31,7 +32,9 @@ export const NavBar: React.FC<NavBarProps> = () => {
         >
           {user.email}
         </Text>
-        <Button ml={3}>Log Out</Button>
+        <Button ml={3} onClick={logOut}>
+          Log Out
+        </Button>
       </>
     );
   }

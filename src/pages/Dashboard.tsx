@@ -55,26 +55,27 @@ export const Dashboard = () => {
             return <Item {...user} />;
           })}
       </Stack>
-
-      <ReactPaginate
-        previousLabel={"previous"}
-        nextLabel={"next"}
-        breakLabel={"..."}
-        pageCount={pageCount}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        onPageChange={handlePageClick}
-        breakClassName={"dsh-pagination-li"}
-        breakLinkClassName={"dsh-pagination-link"}
-        containerClassName={"pagination"}
-        pageClassName={"dsh-pagination-li"}
-        pageLinkClassName={"dsh-pagination-link"}
-        previousClassName={"dsh-pagination-li"}
-        previousLinkClassName={"dsh-pagination-link"}
-        nextClassName={"dsh-pagination-li"}
-        nextLinkClassName={"dsh-pagination-link"}
-        activeClassName={"active-pagi"}
-      />
+      {pageCount >= 2 ? (
+        <ReactPaginate
+          previousLabel={"previous"}
+          nextLabel={"next"}
+          breakLabel={"..."}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          breakClassName={"dsh-pagination-li"}
+          breakLinkClassName={"dsh-pagination-link"}
+          containerClassName={"pagination"}
+          pageClassName={"dsh-pagination-li"}
+          pageLinkClassName={"dsh-pagination-link"}
+          previousClassName={"dsh-pagination-li"}
+          previousLinkClassName={"dsh-pagination-link"}
+          nextClassName={"dsh-pagination-li"}
+          nextLinkClassName={"dsh-pagination-link"}
+          activeClassName={"active-pagi"}
+        />
+      ) : null}
     </>
   );
 };
